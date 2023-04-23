@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as RefreshPostIcon } from '../../assets/images/refresh_post.svg';
 import { Navbar } from '../../components/navbar';
@@ -31,8 +32,30 @@ const MainContentDiv = styled.div`
 `;
 
 export default function OthersStory() {
+  //const [otherPostLists, setOthersPostLists] = useState([]);
+  const examplePost = [
+    { userId: 1, postContent: '예시 포스트입니다1' },
+    { userId: 2, postContent: '예시 포스트입니다2' },
+    { userId: 3, postContent: '예시 포스트입니다3' },
+    { userId: 4, postContent: '예시 포스트입니다4' },
+    { userId: 5, postContent: '예시 포스트입니다5' },
+    { userId: 6, postContent: '예시 포스트입니다6' },
+    { userId: 7, postContent: '예시 포스트입니다7' },
+    { userId: 8, postContent: '예시 포스트입니다8' },
+    { userId: 9, postContent: '예시 포스트입니다9' },
+    { userId: 10, postContent: '예시 포스트입니다10' },
+    { userId: 11, postContent: '예시 포스트입니다11' },
+  ];
+
   const handleRefreshPostClick = () => {
     //todo api 붙여야 함
+    // 계획은 15개 한번에 불러오고
+    // 새로고침 누르면 다시 랜덤으로 포스트 15개
+    // 불러와서 리스트에 저장하는 것이었는데
+    // 아무렇게나 바꾸셔도 상관없습니다.
+    // 여기서 포스트 리스트 가져와서 useState사용해가지고
+    // 리스트 저장하면 됩니다
+    // ex) const [otherPostLists, setOthersPostLists] = useState([]);
     console.log('hi');
   };
 
@@ -40,33 +63,13 @@ export default function OthersStory() {
     <MainBackgroundDiv>
       <Navbar />
       <MainContentDiv>
-        <PostIt>
-          <p>안녕하세요 제 이름은 최윤석 입니다.</p>
-        </PostIt>
-        <PostIt>
-          <p>안녕하세요 제 이름은 최윤석 입니다.</p>
-        </PostIt>
-        <PostIt>
-          <p>안녕하세요 제 이름은 최윤석 입니다.</p>
-        </PostIt>
-        <PostIt>
-          <p>안녕하세요 제 이름은 최윤석 입니다.</p>
-        </PostIt>
-        <PostIt>
-          <p>안녕하세요 제 이름은 최윤석 입니다.</p>
-        </PostIt>
-        <PostIt>
-          <p>안녕하세요 제 이름은 최윤석 입니다.</p>
-        </PostIt>
-        <PostIt>
-          <p>안녕하세요 제 이름은 최윤석 입니다.</p>
-        </PostIt>
-        <PostIt>
-          <p>안녕하세요 제 이름은 최윤석 입니다.</p>
-        </PostIt>
-        <PostIt>
-          <p>안녕하세요 제 이름은 최윤석 입니다.</p>
-        </PostIt>
+        {/**여기에 다른 사람의 스토리를 올려주시면 됩니다. */}
+        {/**아래 코드와 같이 list를 map사용해서 돌면 됩니다.*/}
+        {examplePost.map(postItem => (
+          <PostIt>
+            <p>{postItem.postContent}</p>
+          </PostIt>
+        ))}
       </MainContentDiv>
       <RefreshIconButton onClick={handleRefreshPostClick}>
         <RefreshPostIcon />

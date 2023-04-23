@@ -84,15 +84,25 @@ export default function WritePostModal({
   };
   const handleCheckIconClick = () => {
     //todo : API 붙여야함
-    console.log(postContent);
+    // post에 작성한 내용을 firebase database에 등록해야 합니다.
+    // firebase일 필요는 없고 쉽게 배포할 수 있는 뭐든 상관 없습니다.
+    if (postContent.length === 0) {
+      handleWritePostModalCloseControl();
+    } else {
+      console.log(postContent);
+    }
+  };
+  const handleWritePostModalCloseControl = () => {
+    setPostContent('');
+    handleWritePostModalClose();
   };
   return (
     <CenteredModal
       open={writePostModalOpen}
-      onClose={handleWritePostModalClose}
+      onClose={handleWritePostModalCloseControl}
     >
       <PostItWrapper>
-        <CloseIconWrapper onClick={() => handleWritePostModalClose()}>
+        <CloseIconWrapper onClick={() => handleWritePostModalCloseControl()}>
           <CloseIcon style={{ width: '1.5rem', height: '1.5rem' }} />
         </CloseIconWrapper>
         <InputField

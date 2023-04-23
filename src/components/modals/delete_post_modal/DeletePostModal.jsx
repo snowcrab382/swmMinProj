@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Modal } from '@mui/material';
 import styled from 'styled-components';
 import { ReactComponent as CloseIcon } from '../../../assets/images/close.svg';
@@ -53,7 +52,7 @@ export default function DeletePostModal({
   handleDeletePostModalClose,
 }) {
   const handleCheckIconClick = () => {
-    //todo : API 붙여야함
+    //todo : 포스트 삭제하는 API 붙여야 합니다.
     console.log('삭제');
   };
   return (

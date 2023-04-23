@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Nav = styled.nav`
   background-color: #fff;
   height: 2rem;
-  padding 0.5rem 3rem;
+  padding: 0.5rem 3rem;
   display: flex;
 `;
 
@@ -55,6 +55,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const handleClickLogOut = () => {
+    //todo: 로그아웃 기능 붙일 곳 입니다.
     navigate('/');
   };
 

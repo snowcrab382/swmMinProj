@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import { LoginModal } from '../../components/modals/login-modal';
 import homeBackgroundImg from '../../assets/images/home_background.png';
 import { Button, Typography } from '@mui/material';
 
@@ -26,9 +28,9 @@ const TextContainer = styled.div`
 `;
 
 export default function Home() {
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
   const handleClickLoginBtn = () => {
-    // todo: login 기능 붙여야함
-    console.log('hi');
+    setLoginModalOpen(true);
   };
   return (
     <HomeDiv>
@@ -80,6 +82,10 @@ export default function Home() {
           </TextContainer>
         </div>
       </div>
+      <LoginModal
+        loginModalOpen={loginModalOpen}
+        handleLoginModalClose={() => setLoginModalOpen(false)}
+      />
     </HomeDiv>
   );
 }
