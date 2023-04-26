@@ -42,7 +42,7 @@ export default function Home() {
         }}
       >
         <Button onClick={handleClickLoginBtn} variant="contained">
-          로그인
+          시작하기
         </Button>
       </div>
       <div

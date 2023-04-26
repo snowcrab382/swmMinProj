@@ -61,14 +61,14 @@ export default function Navbar() {
 
   return (
     <Nav>
-      <NavigateDiv onClick={() => navigate('/my-story')}>
+      {/* <NavigateDiv onClick={() => navigate('/my-story')}>
         <NavTabFont selectedPath={'/my-story'} currPath={location.pathname}>
           나의 이야기
         </NavTabFont>
-      </NavigateDiv>
+      </NavigateDiv> */}
       <NavigateDiv onClick={() => navigate('/others-story')}>
         <NavTabFont selectedPath={'/others-story'} currPath={location.pathname}>
-          다른 사람의 이야기
+          모두의 이야기
         </NavTabFont>
       </NavigateDiv>
       <NavLogOut onClick={handleClickLogOut}>떠나기</NavLogOut>

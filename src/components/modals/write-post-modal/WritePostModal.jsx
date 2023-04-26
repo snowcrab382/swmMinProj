@@ -3,6 +3,8 @@ import { Modal } from '@mui/material';
 import styled from 'styled-components';
 import { ReactComponent as CloseIcon } from '../../../assets/images/close.svg';
 import { ReactComponent as CheckIcon } from '../../../assets/images/check.svg';
+import {db} from '../../../firebase';
+import "firebase/compat/firestore";
 
 const CenteredModal = styled(Modal)`
   display: flex;
@@ -86,12 +88,33 @@ export default function WritePostModal({
     //todo : API 붙여야함
     // post에 작성한 내용을 firebase database에 등록해야 합니다.
     // firebase일 필요는 없고 쉽게 배포할 수 있는 뭐든 상관 없습니다.
+    // Firebase 구성
     if (postContent.length === 0) {
-      handleWritePostModalCloseControl();
-    } else {
-      console.log(postContent);
-    }
+    handleWritePostModalCloseControl();
+  } else {
+    db
+      .collection("posts")
+      .add({
+        content: postContent,
+        timestamp: new Date(),
+      })
+      .then((docRef) => {
+        console.log("Post added with ID: ", docRef.id);
+        handleWritePostModalCloseControl();
+        window.location.replace("/others-story");
+      })
+      .catch((error) => {
+        console.error("Error adding post: ", error);
+      });
+  }
+  return (
+    <div>
+      <textarea value={postContent} onChange={(e) => setPostContent(e.target.value)} />
+      <button onClick={handleCheckIconClick}>Submit Post</button>
+    </div>
+  );
   };
+
   const handleWritePostModalCloseControl = () => {
     setPostContent('');
     handleWritePostModalClose();
@@ -117,4 +140,4 @@ export default function WritePostModal({
       </PostItWrapper>
     </CenteredModal>
   );
-}
+  }

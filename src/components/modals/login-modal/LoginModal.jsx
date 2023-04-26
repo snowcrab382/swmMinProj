@@ -72,7 +72,7 @@ export default function LoginModal({ loginModalOpen, handleLoginModalClose }) {
         <CloseIconWrapper onClick={() => handleLoginModalClose()}>
           <CloseIcon style={{ width: '1.5rem', height: '1.5rem' }} />
         </CloseIconWrapper>
-        <p>로그인기능 붙일곳</p>
+        <p>32팀 미니프로젝트에 오신것을 환영합니다!</p>
         {/** here is for id and password input */}
         <LoginBtnWrapper>
           <LoginBtnDiv
@@ -80,10 +80,10 @@ export default function LoginModal({ loginModalOpen, handleLoginModalClose }) {
               //     /**todo : 여기에 로그인 관련된 기능 붙이시면 됩니다 */
               //     /**아래 코드는 main-story페이지로 이동하는 코드라 */
               //     /**적절한 로직 붙이고 아래 코드 실행해주시면 됩니다.*/
-              navigate('/my-story');
+              navigate('/others-story');
             }}
           >
-            로그인
+            시작하기
           </LoginBtnDiv>
         </LoginBtnWrapper>
       </PostItWrapper>

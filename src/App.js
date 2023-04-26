@@ -3,7 +3,15 @@ import './App.css';
 import { Home } from './pages/home';
 import { MyStory } from './pages/my-story';
 import { OthersStory } from './pages/others-story';
+
+import {db} from "./firebase.js";
+import "firebase/compat/firestore";
+import { useEffect } from 'react';
+
 function App() {
+  useEffect(() => {
+    console.log(db)
+  });
   return (
     <BrowserRouter>
       <div className="App">

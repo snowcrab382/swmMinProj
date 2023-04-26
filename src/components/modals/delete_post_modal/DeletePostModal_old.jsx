@@ -2,9 +2,6 @@ import { Modal } from '@mui/material';
 import styled from 'styled-components';
 import { ReactComponent as CloseIcon } from '../../../assets/images/close.svg';
 import { ReactComponent as CheckIcon } from '../../../assets/images/check.svg';
-import { doc, deleteDoc } from "firebase/firestore";
-import {db} from '../../../firebase';
-import "firebase/compat/firestore";
 
 const CenteredModal = styled(Modal)`
   display: flex;
@@ -56,19 +53,7 @@ export default function DeletePostModal({
 }) {
   const handleCheckIconClick = () => {
     //todo : 포스트 삭제하는 API 붙여야 합니다.
-    //고유id를 입력받아 삭제
-    // db.collection("posts").doc("고유id").delete().then(() => {
-    //   console.log("Document successfully deleted!")});
-    
-    //오늘의 일기를 게시하는 느낌의 사이트이기 때문에 매일 특정 시간에 작성된 모든 데이터를 삭제하는 작업을 하는 건 어떤가요?
-    //아래의 로직은 posts 컬렉션의 모든 documents를 삭제하는 코드입니다.
-    console.log(db.collection("posts").get().then((idList)=>{
-      idList.forEach((doc)=>{
-        console.log(doc.ref.delete())
-      })
-    }));
     console.log('삭제');
-    handleDeletePostModalClose();
   };
   return (
     <CenteredModal

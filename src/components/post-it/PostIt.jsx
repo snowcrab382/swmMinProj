@@ -16,7 +16,7 @@ const PostItWrapper = styled.div`
   width: 12rem;
   height: 12rem;
   background-color: ${props =>
-    props.currPath === '/my-story' ? '#fef5d4' : '#ffd6aa'};
+    props.currPath === '/my-story' ? '#ffd6aa' : '#fef5d4'};
 
   border-radius: 0.5rem;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
@@ -65,9 +65,9 @@ export default function PostIt({ children }) {
           <DeleteIcon style={{ width: '1.3rem', height: '1.3rem' }} />
         </DeleteIconWrapper>
         {children}
-        <CommentIconWrapper onClick={() => setCommentModalOpen(true)}>
+        {/* <CommentIconWrapper onClick={() => setCommentModalOpen(true)}>
           <CommentIcon style={{ width: '1.5rem', height: '1.5rem' }} />
-        </CommentIconWrapper>
+        </CommentIconWrapper> */}
       </PostItWrapper>
       <CommentPostModal
         commentPostModalOpen={commentModalOpen}
